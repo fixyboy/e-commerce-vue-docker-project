@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build: ./services/auth-service
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGODB_URI=mongodb://mongo-auth:27017/authdb
+      - JWT_SECRET=secret_dev
+      - PORT=3001
+    depends_on:
+      - mongo-auth
+
+  product-service:
+    build: ./services/product-service
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongo-product:27017/productdb
+      - JWT_SECRET=secret_dev
+      - PORT=3000
+    depends_on:
+      - mongo-product
+
+  order-service:
+    build: ./services/order-service
+    ports:
+      - "3002:3002"
+    environment:
+      - MONGODB_URI=mongodb://mongo-order:27017/orderdb
+      - JWT_SECRET=secret_dev
+      - PORT=3002
+    depends_on:
+      - mongo-order
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - auth-service
+      - product-service
+      - order-service
+
+  mongo-auth:
+    image: mongo:6
+    volumes:
+      - mongo-auth-data:/data/db
+
+  mongo-product:
+    image: mongo:6
+    volumes:
+      - mongo-product-data:/data/db
+
+  mongo-order:
+    image: mongo:6
+    volumes:
+      - mongo-order-data:/data/db
+
+volumes:
+  mongo-auth-data:
+  mongo-product-data:
+  mongo-order-data:
