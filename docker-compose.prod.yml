@@ -1,0 +1,80 @@
+services:
+  auth-service:
+    build:
+      context: ./services/auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGODB_URI=mongodb://mongo-auth:27017/authdb
+      - JWT_SECRET=${JWT_SECRET}
+      - PORT=3001
+      - NODE_ENV=production
+    depends_on:
+      - mongo-auth
+    restart: always
+
+  product-service:
+    build:
+      context: ./services/product-service
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongo-product:27017/productdb
+      - JWT_SECRET=${JWT_SECRET}
+      - PORT=3000
+      - NODE_ENV=production
+    depends_on:
+      - mongo-product
+    restart: always
+
+  order-service:
+    build:
+      context: ./services/order-service
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - MONGODB_URI=mongodb://mongo-order:27017/orderdb
+      - JWT_SECRET=${JWT_SECRET}
+      - PORT=3002
+      - NODE_ENV=production
+    depends_on:
+      - mongo-order
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - auth-service
+      - product-service
+      - order-service
+    restart: always
+
+  mongo-auth:
+    image: mongo:6
+    volumes:
+      - mongo-auth-data:/data/db
+    restart: always
+
+  mongo-product:
+    image: mongo:6
+    volumes:
+      - mongo-product-data:/data/db
+    restart: always
+
+  mongo-order:
+    image: mongo:6
+    volumes:
+      - mongo-order-data:/data/db
+    restart: always
+
+volumes:
+  mongo-auth-data:
+  mongo-product-data:
+  mongo-order-data:
