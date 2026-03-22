@@ -35,6 +35,7 @@ services:
       - MONGODB_URI=mongodb://mongo-order:27017/orderdb
       - JWT_SECRET=secret_dev
       - PORT=3002
+      - VITE_PRODUCT_SERVICE_URL=http://product-service:3000
     volumes:
       - ./services/order-service:/app
       - /app/node_modules
