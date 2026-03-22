@@ -1,4 +1,5 @@
-64c0e15 ajout README-docker.md
-7cca550 ajout docker-compose.prod.yml, .dockerignore et gitignore
-c639630 ajout des Dockerfiles et docker compose pour les services
-a5ac7dd initial commit
+94261bc 2026-03-22 | äjout logs_git (HEAD -> main, origin/main, origin/develop, origin/HEAD, develop) [fouad]
+64c0e15 2026-03-22 | ajout README-docker.md [fouad]
+7cca550 2026-03-22 | ajout docker-compose.prod.yml, .dockerignore et gitignore [fouad]
+c639630 2026-03-22 | ajout des Dockerfiles et docker compose pour les services [fouad]
+a5ac7dd 2026-03-22 | initial commit [Fouad Hassanein]

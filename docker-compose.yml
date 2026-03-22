@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   auth-service:
     build: ./services/auth-service
@@ -9,6 +7,9 @@ services:
       - MONGODB_URI=mongodb://mongo-auth:27017/authdb
       - JWT_SECRET=secret_dev
       - PORT=3001
+    volumes:
+      - ./services/auth-service:/app
+      - /app/node_modules
     depends_on:
       - mongo-auth
 
@@ -20,6 +21,9 @@ services:
       - MONGODB_URI=mongodb://mongo-product:27017/productdb
       - JWT_SECRET=secret_dev
       - PORT=3000
+    volumes:
+      - ./services/product-service:/app
+      - /app/node_modules
     depends_on:
       - mongo-product
 
@@ -31,6 +35,9 @@ services:
       - MONGODB_URI=mongodb://mongo-order:27017/orderdb
       - JWT_SECRET=secret_dev
       - PORT=3002
+    volumes:
+      - ./services/order-service:/app
+      - /app/node_modules
     depends_on:
       - mongo-order
 
