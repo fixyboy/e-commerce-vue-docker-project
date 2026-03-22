@@ -1,0 +1,4 @@
+64c0e15 ajout README-docker.md
+7cca550 ajout docker-compose.prod.yml, .dockerignore et gitignore
+c639630 ajout des Dockerfiles et docker compose pour les services
+a5ac7dd initial commit
