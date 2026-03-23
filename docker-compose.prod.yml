@@ -2,7 +2,7 @@ services:
   auth-service:
     build:
       context: ./services/auth-service
-      dockerfile: Dockerfile
+      target: production
     ports:
       - "3001:3001"
     environment:
@@ -17,7 +17,7 @@ services:
   product-service:
     build:
       context: ./services/product-service
-      dockerfile: Dockerfile
+      target: production
     ports:
       - "3000:3000"
     environment:
@@ -32,7 +32,7 @@ services:
   order-service:
     build:
       context: ./services/order-service
-      dockerfile: Dockerfile
+      target: production
     ports:
       - "3002:3002"
     environment:

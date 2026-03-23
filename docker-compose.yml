@@ -1,6 +1,8 @@
 services:
   auth-service:
-    build: ./services/auth-service
+    build:
+      context: ./services/auth-service
+      target: development
     ports:
       - "3001:3001"
     environment:
@@ -14,7 +16,9 @@ services:
       - mongo-auth
 
   product-service:
-    build: ./services/product-service
+    build:
+      context: ./services/product-service
+      target: development
     ports:
       - "3000:3000"
     environment:
@@ -28,7 +32,9 @@ services:
       - mongo-product
 
   order-service:
-    build: ./services/order-service
+    build:
+      context: ./services/order-service
+      target: development
     ports:
       - "3002:3002"
     environment:
