@@ -1,5 +1,5 @@
 #!/bin/bash
-cat > /opt/ecommerce/README-docker.md << 'ENDOFFILE'
+
 # Projet Docker - E-Commerce Microservices
 
 ## Architecture
