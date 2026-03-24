@@ -1,4 +1,6 @@
-d90a44d 2026-03-23 | Ajout multi-stage Dockerfiles et configuration target dev/prod dans les fichiers compose (HEAD -> main, origin/main, origin/HEAD) [fouad]
+d7bc0b0 2026-03-24 | Mise a jour documentation Docker (HEAD -> main) [fouad]
+2313e90 2026-03-23 | Mise a jour logs_projet.txt (origin/main, origin/HEAD) [fouad]
+d90a44d 2026-03-23 | Ajout multi-stage Dockerfiles et configuration target dev/prod dans les fichiers compose [fouad]
 88e79c0 2026-03-22 | test pass [fouad]
 7e48e75 2026-03-22 | finalisation du prjet [fouad]
 31a2439 2026-03-22 | ajout user non root, volumes hot reload et logs formar [fouad]
